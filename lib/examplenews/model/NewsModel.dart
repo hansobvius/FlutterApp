@@ -1,5 +1,4 @@
 //News Models
-
 class NewsModel{
 
   final String status;
@@ -9,10 +8,14 @@ class NewsModel{
   NewsModel({this.status, this.totalResults, this.articles});
 
   factory NewsModel.fromJson(Map<String, dynamic> json){
+
+    var articleList = json['articles'] as List;
+    List<NewsArticles> articlesArray = articleList.map((i) => NewsArticles.fromJson(i)).toList();
+
     return NewsModel(
         status: json['status'],
         totalResults: json['totalResults'],
-        articles: new List<NewsArticles>.from(json['articles'])
+        articles: articlesArray
     );
   }
 }
@@ -30,8 +33,11 @@ class NewsArticles{
   NewsArticles({this.source, this.author, this.description, this.url, this.urlToImage, this.publishedAt, this.content});
 
   factory NewsArticles.fromJson(Map<String, dynamic> json){
+
+    var newsSource = NewsSource.fromJson(json['source']);
+
     return NewsArticles(
-      source: json['source'],
+      source: newsSource,
       author: json['author'],
       description: json['description'],
       url: json['url'],

@@ -3,6 +3,8 @@ import 'package:flutter_app/examplenews/model/NewsModel.dart';
 
 class NewsList extends StatelessWidget{
 
+  static int GRID_COUNT = 1;
+
   final NewsModel newsList;
 
   NewsList({this.newsList});
@@ -11,7 +13,7 @@ class NewsList extends StatelessWidget{
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2
+        crossAxisCount: GRID_COUNT
       ),
       itemCount: newsList.articles.length,
       itemBuilder: (context, index){
@@ -19,5 +21,4 @@ class NewsList extends StatelessWidget{
       },
     );
   }
-
 }

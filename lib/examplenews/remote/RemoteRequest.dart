@@ -13,39 +13,14 @@ Future<NewsModel> fetchNews(http.Client client) async {
   final response = await client.get(BASE_URL);
 
   if(response.statusCode == successCode){
-//    return parseNews(response.body);
-    return NewsModel.fromJson(json.decode(response.body));
+    return parseNews(response.body);
   }else{
     throw Exception('Failed');
   }
 }
 
-
-////Parse Json
-//List<NewsModel> parseNews(String responseBody) async {
-//
-////  final response = await json.decode(responseBody).toList();
-//
-////  final response = await responseBody.transform(utf8.decoder).join();
-////  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-////  return parsed.map<NewsModel>((json) => NewsModel.fromJson(json)).toList();
-////  return parsed;
-////  return response;
-//
-//  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-//  return parsed.map<NewsModel>((json) => NewsModel.fromJson(json)).toList();
-//}
-
 NewsModel parseNews(String responseBody){
   Map obj = jsonDecode(responseBody);
-//  var news = NewsModel.fromJson(obj);
-//  var seila = news.articles;
-  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-//  return parsed.map<NewsModel>((json) => NewsModel.fromJson(json));
-  return parsed;
+  var news = NewsModel.fromJson(obj);
+  return news;
 }
-
-//NewsModel parseNews(String responseBody){
-//  Map<String, dynamic> user = jsonDecode(responseBody);
-//  return user;
-//}

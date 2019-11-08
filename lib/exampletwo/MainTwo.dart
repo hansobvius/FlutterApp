@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/exampletwo/CustomWidget.dart';
 
 class MainTwo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    assert(debugCheckHasMaterial(context));
-    return Material(
-      color: Colors.transparent,
-      child: Container(
-        height: 100.00,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(10.0),
-          highlightColor: Colors.lightBlue,
-        ),
-      ),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: CustomAppBar(),
+        body: Text('sasasasa'),
+      )
     );
   }
+}
 
+class RowContainer extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
