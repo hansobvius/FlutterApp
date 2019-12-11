@@ -8,7 +8,7 @@ class MainClass extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter App',
-      home: AppState()
+      home: NewsContainer()
     );
   }
 }

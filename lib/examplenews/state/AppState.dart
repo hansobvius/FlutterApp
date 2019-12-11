@@ -7,7 +7,7 @@ import 'package:flutter_app/exampleone/CustomWidgets.dart';
 import 'package:http/http.dart' as http;
 
 
-class AppState extends StatelessWidget{
+class NewsContainer extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
