@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/examplenews/model/NewsModel.dart';
+import 'package:flutter_app/exampleone/Util.dart';
 
 class NewsList extends StatelessWidget{
 
@@ -22,21 +23,22 @@ class NewsList extends StatelessWidget{
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
-              flex:3,
               child: Container(
-                child: Image.network(newsList.articles[index].urlToImage)
+                child: Image(
+                  width: double.maxFinite,
+                  fit: BoxFit.fitWidth,
+                  image: NetworkImage(
+                    newsList.articles[index].urlToImage,
+                  )
+                )
               ),
             ),
             Expanded(
-              flex: 1,
-              child: Text(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
                   newsList.articles[index].description
-              )
-            ),
-            Expanded(
-              flex: 3,
-              child: Text(
-                newsList.articles[index].description
+                ),
               )
             )
           ],
@@ -46,11 +48,3 @@ class NewsList extends StatelessWidget{
   }
 }
 
-Container getNewsContainer(){
-  return Container(
-    child: Column(
-      children: <Widget>[
-      ],
-    )
-  );
-}
